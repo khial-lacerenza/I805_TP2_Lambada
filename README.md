@@ -35,8 +35,6 @@ pourra donner, par exemple, l'arbre suivant :
 Une fois l'arbre généré, récupérez le dans le programme pricipal et affichez le, par exemple sous la forme d'une expression préfixée parenthésée :
 `(; (LET prixTtc (/ (* prixHt 119) 100)) (+ prixTtc 100))`
 
-## Running the TP: 
-``java -cp .\build\libs\I805_TP2_Lambada.jar fr.usmb.m1isc.compilation.tp.Main .\test.txt``
 
 ## Exercice 2 :
 
@@ -77,9 +75,26 @@ do (let aux=(a mod b); let a=b; let b=aux );
 output a .
 ```
 
+# Rendu du TP :
 ## Après analyse le programme nous retourne :
-### Run Exercice 2 : 
+### Run Exercice 1 :
+``java -cp .\build\libs\I805_TP2_Lambada.jar fr.usmb.m1isc.compilation.tp.Main .\test.txt``
+#### Resultat : 
+```
+(; 
+    (let prixTtc 
+        (/ 
+            (* prixHt 119 )
+            100 
+        )
+    )
+    (+ prixTtc 100 )
+)
+```
+
+### Run Exercice 2 :
 `java -cp .\build\libs\I805_TP2_Lambada.jar fr.usmb.m1isc.compilation.tp.Main .\test2.txt `
+#### Resultat:
 ```
 (; 
     (let a input )
@@ -87,14 +102,16 @@ output a .
         (let b input )
         (; 
             (while (< 0 b )
-            (; 
-                (let aux (mod a b ))
                 (; 
-                    (let a b )
-                    (let b aux )
+                    (let aux (mod a b ))
+                    (; 
+                        (let a b )
+                        (let b aux )
+                    )
                 )
-            ))
+            )
         output a 
         )
     )
-)```
+)
+```
