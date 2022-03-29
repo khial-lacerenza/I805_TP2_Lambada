@@ -2,6 +2,8 @@
 
 L'objectif du TP est d'utiliser les outils JFlex et CUP pour générer des arbres abstraits correspondant à un sous ensemble du langage **λ-ada**.
 
+
+
 ## Exercice 1 :
 
 Utiliser JFlex et CUP pour générer l'arbre abstrait correspondant à l'analyse d'expressions arithmétiques sur les nombres entiers.
@@ -32,6 +34,9 @@ pourra donner, par exemple, l'arbre suivant :
 
 Une fois l'arbre généré, récupérez le dans le programme pricipal et affichez le, par exemple sous la forme d'une expression préfixée parenthésée :
 `(; (LET prixTtc (/ (* prixHt 119) 100)) (+ prixTtc 100))`
+
+## Running the TP: 
+``java -cp .\build\libs\I805_TP2_Lambada.jar fr.usmb.m1isc.compilation.tp.Main .\test.txt``
 
 ## Exercice 2 :
 
