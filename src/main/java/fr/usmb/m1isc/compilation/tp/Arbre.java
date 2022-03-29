@@ -63,28 +63,22 @@ public class Arbre {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if(valeur != "")
-        {
-            sb.append(valeur).append(" ");
-            if (filsGauche != null) {
-                if (filsGauche.getFilsGauche() != null && filsGauche.getFilsDroit() != null) {
-                    if(filsGauche.getFilsGauche().getValeur() != " " && filsGauche.getFilsDroit().getValeur() != " " )
-                        sb.append("(").append(filsGauche).append(")");
-                }else
-                {
-                    sb.append(filsGauche);
-                }
-            }
-            if (filsDroit != null) {
-                if ((filsDroit.getFilsGauche() != null && filsDroit.getFilsDroit() != null)) {
-                    if((filsDroit.getFilsGauche().getValeur() != " " && filsDroit.getFilsDroit().getValeur() != " " ))
-                        sb.append("(").append(filsDroit).append(")");
-                }else
-                {
-                    sb.append(filsDroit);
-                }
+        sb.append(valeur).append(" ");
+        if (filsGauche != null) {
+            if (filsGauche.getFilsGauche() != null && filsGauche.getFilsDroit() != null) {
+                sb.append("(").append(filsGauche).append(")");
+            } else {
+                sb.append(filsGauche);
             }
         }
+        if (filsDroit != null) {
+            if ((filsDroit.getFilsGauche() != null && filsDroit.getFilsDroit() != null)) {
+                sb.append("(").append(filsDroit).append(")");
+            } else {
+                sb.append(filsDroit);
+            }
+        }
+
         return sb.toString();
     }
 }

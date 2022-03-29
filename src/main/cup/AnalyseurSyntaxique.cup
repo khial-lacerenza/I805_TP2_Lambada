@@ -66,7 +66,7 @@ sequence ::= expression:e1 SEMI sequence:e2                             {: RESUL
             ;
 
 // une expession est soit une affectation
-expression ::= expr:e                                                   {: RESULT = new Arbre(e); :}
+expression ::= expr:e                                                   {: RESULT = new Arbre(e);:}
              | LET IDENT:nom EGAL expr:e                                {: RESULT = new Arbre(new Arbre(nom), "let", new Arbre(e)); :}
              | WHILE expr:cond DO expression:e                          {: RESULT = new Arbre(new Arbre(cond), "while", new Arbre(e)); :}
              | IF expr:cond THEN expression:a1 ELSE expression:a2       {: RESULT = new Arbre(new Arbre(cond), "if", new Arbre(new Arbre(a1), "actions", new Arbre(a2))); :}
@@ -88,8 +88,8 @@ expr ::= NOT:op expr:e                                      {: RESULT = new Arbr
        | MOINS expr:e                                       {: RESULT = new Arbre("-", e);       :}     %prec MOINS_UNAIRE
        | OUTPUT expr:e                                      {: RESULT = new Arbre("output", e);  :}
        | INPUT                                              {: RESULT = new Arbre("input");  :}
-       | NIL                                                {: RESULT = new Arbre("NIL");  :}
+       | NIL
        | ENTIER:n                                           {: RESULT = new Arbre(n);           :}
        | IDENT:id                                           {: RESULT = new Arbre(id);          :}
-       | PAR_G sequence:e PAR_D                             {: RESULT = new Arbre(new Arbre("("), e, new Arbre(")")); :}
+       | PAR_G sequence:e PAR_D                             {: RESULT = new Arbre(e); :}
        ;

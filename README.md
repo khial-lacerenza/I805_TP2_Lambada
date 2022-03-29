@@ -76,3 +76,25 @@ while (0 < b)
 do (let aux=(a mod b); let a=b; let b=aux );
 output a .
 ```
+
+## Après analyse le programme nous retourne :
+### Run Exercice 2 : 
+`java -cp .\build\libs\I805_TP2_Lambada.jar fr.usmb.m1isc.compilation.tp.Main .\test2.txt `
+```
+(; 
+    (let a input )
+    (; 
+        (let b input )
+        (; 
+            (while (< 0 b )
+            (; 
+                (let aux (mod a b ))
+                (; 
+                    (let a b )
+                    (let b aux )
+                )
+            ))
+        output a 
+        )
+    )
+)```
