@@ -19,5 +19,4 @@ public class Main {
 	ParserAssembler pa = new ParserAssembler();
 	pa.parcoursArbre((Arbre) s.value);
     }
-
 }
