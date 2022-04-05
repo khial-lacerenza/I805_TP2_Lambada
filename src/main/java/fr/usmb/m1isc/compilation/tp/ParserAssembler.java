@@ -12,8 +12,11 @@ public class ParserAssembler {
             System.out.println(arbre.getValeur());
         }
         else{
+            System.out.println(arbre.getValeur());
             parcoursArbre(arbre.getFilsGauche());
             parcoursArbre(arbre.getFilsDroit());
         }
     }
+
+
 }
