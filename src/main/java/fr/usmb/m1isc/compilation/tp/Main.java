@@ -17,6 +17,6 @@ public class Main {
 	parser p = new parser (yy);
 	Symbol s = p.parse();
 	ParserAssembler pa = new ParserAssembler();
-	pa.parcoursArbre((Arbre) s.value);
+	pa.parseIt((Arbre) s.value);
     }
 }
