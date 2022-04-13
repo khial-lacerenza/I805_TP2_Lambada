@@ -18,5 +18,6 @@ public class Main {
 	Symbol s = p.parse();
 	ParserAssembler pa = new ParserAssembler();
 	pa.parseIt((Arbre) s.value);
+	System.out.println((Arbre) s.value);
     }
 }

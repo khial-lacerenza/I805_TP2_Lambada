@@ -20,7 +20,7 @@ public class WriterAsm {
             FileWriter f = new FileWriter(name, true);
             BufferedWriter b = new BufferedWriter(f);
             PrintWriter p = new PrintWriter(b);
-            p.println(content);
+            p.print(content);
 
             p.close();
             b.close();
