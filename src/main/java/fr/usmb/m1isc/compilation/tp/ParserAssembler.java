@@ -55,6 +55,7 @@ public class ParserAssembler {
     public String decryptValue(Arbre arbre ) {
         String value = arbre.getValeur().toString();
 
+
         if (arbre.getType() == Types.INT ||arbre.getType() == Types.IDENT ) {
 
 
