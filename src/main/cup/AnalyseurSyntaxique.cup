@@ -68,13 +68,13 @@ sequence ::= expression:e1 SEMI sequence:e2                             {: RESUL
 // une expession est soit une affectation
 expression ::= expr:e                                                   {: RESULT = new Arbre(e);:}
              | LET IDENT:nom EGAL expr:e                                {: RESULT = new Arbre(new Arbre(nom, Types.VARIABLE), "let", e, Types.LET); :}
-             | WHILE expr:cond DO expression:e                          {: RESULT = new Arbre(new Arbre(cond), "while", new Arbre(e), Types.WHILE); :}
+             | WHILE expr:cond DO expression:e                          {: RESULT = new Arbre(cond, "while", e, Types.WHILE); :}
              | IF expr:cond THEN expression:a1 ELSE expression:a2       {: RESULT = new Arbre(new Arbre(cond), "if", new Arbre(new Arbre(a1), "actions", new Arbre(a2), Types.ACTION), Types.IF); :}
              | error // reprise d'erreurs
              ;
 
 // une expression arithmetiques et logiques
-expr ::= NOT:op expr:e                                      {: RESULT = new Arbre("NOT", e, Types.NOT);     :}
+expr ::= NOT:op expr:e                                      {: RESULT = new Arbre(e, "NOT", Types.NOT);     :}
        | expr:e1 AND expr:e2                                {: RESULT = new Arbre(e1, "&&", e2, Types.AND); :}
        | expr:e1 OR expr:e2                                 {: RESULT = new Arbre(e1, "||", e2, Types.OR); :}
        | expr:e1 GT expr:e2                                 {: RESULT = new Arbre(e1, "<", e2, Types.GT);  :}
@@ -86,7 +86,7 @@ expr ::= NOT:op expr:e                                      {: RESULT = new Arbr
        | expr:e1 DIV expr:e2                                {: RESULT = new Arbre(e1, "/", e2, Types.DIV);  :}
        | expr:e1 MOD expr:e2                                {: RESULT = new Arbre(e1, "mod" ,e2, Types.MOD);  :}
        | MOINS expr:e                                       {: RESULT = new Arbre(e, "-",Types.UNAIRE);       :}     %prec MOINS_UNAIRE
-       | OUTPUT expr:e                                      {: RESULT = new Arbre("output", e, Types.OUTPUT);  :}
+       | OUTPUT expr:e                                      {: RESULT = new Arbre(e, "output",Types.OUTPUT);  :}
        | INPUT                                              {: RESULT = new Arbre("input", Types.INPUT);  :}
        | NIL
        | ENTIER:n                                           {: RESULT = new Arbre(n, Types.INT);           :}
