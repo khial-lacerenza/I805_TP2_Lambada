@@ -7,6 +7,9 @@ public class Arbre {
     private Arbre filsDroit;
     private Object valeur;
 
+    private Types type;
+
+
     public Arbre() {
     }
 
@@ -14,26 +17,35 @@ public class Arbre {
         this.valeur = valeur;
     }
 
+    public Arbre(Object valeur, Types type) {
+        this.valeur = valeur;
+        this.type = type;
+    }
+
     public Arbre(Arbre a) {
         this.filsGauche = a.filsGauche;
         this.filsDroit = a.filsDroit;
         this.valeur = a.valeur;
+        this.type = a.type;
     }
 
-    public Arbre(Arbre filsGauche, Object valeur) {
+    public Arbre(Arbre filsGauche, Object valeur, Types type) {
         this.filsGauche = filsGauche;
         this.valeur = valeur;
+        this.type = type;
     }
 
-    public Arbre(Object valeur, Arbre filsDroit) {
+    public Arbre(Object valeur, Arbre filsDroit, Types type) {
         this.valeur = valeur;
         this.filsDroit = filsDroit;
+        this.type = type;
     }
 
-    public Arbre(Arbre filsGauche, Object valeur, Arbre filsDroit) {
+    public Arbre(Arbre filsGauche, Object valeur, Arbre filsDroit, Types type) {
         this.valeur = valeur;
         this.filsGauche = filsGauche;
         this.filsDroit = filsDroit;
+        this.type = type;
     }
 
     public Arbre getFilsGauche() {
@@ -60,10 +72,19 @@ public class Arbre {
         this.valeur = valeur;
     }
 
+    public Types getType() {
+        return type;
+    }
+
+    public void setType(Types type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(valeur).append(" ");
+        sb.append(type).append(" ");
         if (filsGauche != null) {
             if (filsGauche.getFilsGauche() != null && filsGauche.getFilsDroit() != null) {
                 sb.append("(").append(filsGauche).append(")");
